@@ -14,14 +14,15 @@ http://www.mulesoft.org/schema/mule/api-gateway http://www.mulesoft.org/schema/m
 	<http:listener-config
 		name="product-api-httpListenerConfig">
 		<http:listener-connection host="0.0.0.0"
-			port="8081" />
+			port="${http.port}" />
 	</http:listener-config>
 	<apikit:config name="product-api-config"
-		api="resource::22011712-8a60-4b54-9ae1-5cf40b75c8b3:product-api:1.0.0:raml:zip:product-api.raml"
+		api="resource::f3cca354-30b7-481e-98ec-f79acbdbb548:product-api:1.0.0:raml:zip:product-api.raml"
 		outboundHeadersMapName="outboundHeaders"
 		httpStatusVarName="httpStatus" />
 	<api-gateway:autodiscovery apiId="${api.id}" ignoreBasePath="true" doc:name="API Autodiscovery" doc:id="d866390a-57d1-4c96-a268-51dbb4a5fd84" flowRef="product-api-main" />
 	<configuration-properties doc:name="Configuration properties" doc:id="fc682a9e-c9c3-4f8d-98f2-bf3f1cc1f470" file="product-api-${env}.yaml" />
+	<global-property doc:name="Global Property" doc:id="17fe0978-2daa-47df-bdde-72213214c2ab" name="env" value="dev" />
 
 
 </mule>

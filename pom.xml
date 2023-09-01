@@ -16,7 +16,7 @@
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 
 		<app.runtime>4.4.0-20230320</app.runtime>
-		<mule.maven.plugin.version>3.8.1</mule.maven.plugin.version>
+		<mule.maven.plugin.version>3.8.6</mule.maven.plugin.version>
 	</properties>
 	<profiles>
 		<profile>
@@ -30,16 +30,16 @@
 						<extensions>true</extensions>
 						<configuration>
 							<cloudHubDeployment>
-								<applicationName>abc-dev-product-api</applicationName>
+								<uri>https://anypoint.mulesoft.com</uri>
+								<username>super-yuko04-developer</username>
+								<password>1Qazxsw2</password>
 								<environment>dev</environment>
 								<region>us-east-1</region>
 								<workers>1</workers>
 								<workerType>MICRO</workerType>
+								<objectStoreV2>true</objectStoreV2>
 								<properties>
 									<env>dev</env>
-									<api.id>18630883</api.id>
-									<anypoint.platform.client_id>b66f7251038e4f49935bd0dba930fc78</anypoint.platform.client_id>
-									<anypoint.platform.client_secret>2ad7496c82da4C5a93705b74993bd3D9</anypoint.platform.client_secret>
 								</properties>
 							</cloudHubDeployment>
 						</configuration>
@@ -47,34 +47,15 @@
 				</plugins>
 			</build>
 		</profile>
-		<profile>
-			<id>tst</id>
-			<build>
-				<plugins>
-					<plugin>
-						<groupId>org.mule.tools.maven</groupId>
-						<artifactId>mule-maven-plugin</artifactId>
-						<version>${mule.maven.plugin.version}</version>
-						<extensions>true</extensions>
-						<configuration>
-							<cloudHubDeployment>
-								<applicationName>abc-tst-product-api</applicationName>
-								<environment>tst</environment>
-								<region>us-east-1</region>
-								<workers>1</workers>
-								<workerType>MICRO</workerType>
-								<properties>
-									<env>tst</env>
-									<api.id>18630966</api.id>
-									<anypoint.platform.client_id>078ed5cf8f7b4a7ebf66713f750a7013</anypoint.platform.client_id>
-									<anypoint.platform.client_secret>79fe6edd1dc14FB4aD1F6CAca997a8C2</anypoint.platform.client_secret>
-								</properties>
-							</cloudHubDeployment>
-						</configuration>
-					</plugin>
-				</plugins>
-			</build>
-		</profile>
+		<!-- <profile> <id>tst</id> <build> <plugins> <plugin> <groupId>org.mule.tools.maven</groupId> 
+			<artifactId>mule-maven-plugin</artifactId> <version>${mule.maven.plugin.version}</version> 
+			<extensions>true</extensions> <configuration> <cloudHubDeployment> <applicationName>abc-tst-product-api</applicationName> 
+			<environment>tst</environment> <region>us-east-1</region> <workers>1</workers> 
+			<workerType>MICRO</workerType> <properties> <env>tst</env> <api.id>18630966</api.id> 
+			<anypoint.platform.client_id>078ed5cf8f7b4a7ebf66713f750a7013</anypoint.platform.client_id> 
+			<anypoint.platform.client_secret>79fe6edd1dc14FB4aD1F6CAca997a8C2</anypoint.platform.client_secret> 
+			</properties> </cloudHubDeployment> </configuration> </plugin> </plugins> 
+			</build> </profile> -->
 
 	</profiles>
 
@@ -93,16 +74,21 @@
 				<configuration>
 					<cloudHubDeployment>
 						<uri>https://anypoint.mulesoft.com</uri>
-						<muleVersion>4.4.0</muleVersion>
-						<username>ytachimule19</username>
+						<muleVersion>${app.runtime}</muleVersion>
+						<applicationName>std-product-api-dev-v1</applicationName>
+
+						<username>super-yuko04-developer</username>
 						<password>1Qazxsw2</password>
 						<objectStoreV2>true</objectStoreV2>
 						<properties>
-							<http.port>8081</http.port>
-							<anypoint.platform.base_uri>https://eu1.anypoint.mulesoft.com</anypoint.platform.base_uri>
-							<anypoint.platform.analytics_base_uri>https://analytics-ingest.eu1.anypoint.mulesoft.com</anypoint.platform.analytics_base_uri>
+							<env>${env}</env>
+							<http.port>${http.port}</http.port>
+							<anypoint.platform.client_id>2d2aed374bef47919015d59be8dd7f5f</anypoint.platform.client_id>
+							<anypoint.platform.client_secret>D87ee84F57064b5E953C90Ab13E4A38b</anypoint.platform.client_secret>
+
 						</properties>
 					</cloudHubDeployment>
+					<classifier>mule-application</classifier>
 				</configuration>
 			</plugin>
 		</plugins>
@@ -121,7 +107,7 @@
 			<classifier>mule-plugin</classifier>
 		</dependency>
 		<dependency>
-			<groupId>22011712-8a60-4b54-9ae1-5cf40b75c8b3</groupId>
+			<groupId>f3cca354-30b7-481e-98ec-f79acbdbb548</groupId>
 			<artifactId>product-api</artifactId>
 			<version>1.0.0</version>
 			<classifier>raml</classifier>
@@ -132,6 +118,13 @@
 			<artifactId>mule-apikit-module</artifactId>
 			<version>1.8.2</version>
 			<classifier>mule-plugin</classifier>
+		</dependency>
+		<dependency>
+			<groupId>f3cca354-30b7-481e-98ec-f79acbdbb548</groupId>
+			<artifactId>product-api</artifactId>
+			<version>1.0.0</version>
+			<classifier>raml</classifier>
+			<type>zip</type>
 		</dependency>
 	</dependencies>
 
