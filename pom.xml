@@ -79,6 +79,10 @@
 
 						<username>super-yuko04-developer</username>
 						<password>1Qazxsw2</password>
+						<environment>dev</environment>
+						<region>us-east-2</region>
+						<workers>1</workers>
+						<workerType>MICRO</workerType>
 						<objectStoreV2>true</objectStoreV2>
 						<properties>
 							<env>${env}</env>
