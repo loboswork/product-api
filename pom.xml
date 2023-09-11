@@ -30,9 +30,7 @@
 						<extensions>true</extensions>
 						<configuration>
 							<cloudHubDeployment>
-								<uri>https://anypoint.mulesoft.com</uri>
-								<username>super-yuko04-developer</username>
-								<password>1Qazxsw2</password>
+								<applicationName>abc-dev-product-api</applicationName>
 								<environment>dev</environment>
 								<region>us-east-1</region>
 								<workers>1</workers>
@@ -40,6 +38,10 @@
 								<objectStoreV2>true</objectStoreV2>
 								<properties>
 									<env>dev</env>
+									<anypoint.platform.client_id>2d2aed374bef47919015d59be8dd7f5f</anypoint.platform.client_id>
+									<anypoint.platform.client_secret>D87ee84F57064b5E953C90Ab13E4A38b</anypoint.platform.client_secret>
+									<api.id>18933674</api.id>
+
 								</properties>
 							</cloudHubDeployment>
 						</configuration>
@@ -47,15 +49,34 @@
 				</plugins>
 			</build>
 		</profile>
-		<!-- <profile> <id>tst</id> <build> <plugins> <plugin> <groupId>org.mule.tools.maven</groupId> 
-			<artifactId>mule-maven-plugin</artifactId> <version>${mule.maven.plugin.version}</version> 
-			<extensions>true</extensions> <configuration> <cloudHubDeployment> <applicationName>abc-tst-product-api</applicationName> 
-			<environment>tst</environment> <region>us-east-1</region> <workers>1</workers> 
-			<workerType>MICRO</workerType> <properties> <env>tst</env> <api.id>18630966</api.id> 
-			<anypoint.platform.client_id>078ed5cf8f7b4a7ebf66713f750a7013</anypoint.platform.client_id> 
-			<anypoint.platform.client_secret>79fe6edd1dc14FB4aD1F6CAca997a8C2</anypoint.platform.client_secret> 
-			</properties> </cloudHubDeployment> </configuration> </plugin> </plugins> 
-			</build> </profile> -->
+		<profile>
+			<id>tst</id>
+			<build>
+				<plugins>
+					<plugin>
+						<groupId>org.mule.tools.maven</groupId>
+						<artifactId>mule-maven-plugin</artifactId>
+						<version>${mule.maven.plugin.version}</version>
+						<extensions>true</extensions>
+						<configuration>
+							<cloudHubDeployment>
+								<applicationName>abc-tst-product-api</applicationName>
+								<environment>tst</environment>
+								<region>us-east-1</region>
+								<workers>1</workers>
+								<workerType>MICRO</workerType>
+								<properties>
+									<env>tst</env>
+									<api.id>18960873</api.id>
+									<anypoint.platform.client_id>e11e028594ab473fba286b169c24ccee</anypoint.platform.client_id>
+									<anypoint.platform.client_secret>77DBc86c41BF4b5D85Af10A3683ceD68</anypoint.platform.client_secret>
+								</properties>
+							</cloudHubDeployment>
+						</configuration>
+					</plugin>
+				</plugins>
+			</build>
+		</profile>
 
 	</profiles>
 
@@ -80,15 +101,9 @@
 						<username>super-yuko04-developer</username>
 						<password>1Qazxsw2</password>
 						<environment>dev</environment>
-						<region>us-east-2</region>
-						<workers>1</workers>
-						<workerType>MICRO</workerType>
-						<objectStoreV2>true</objectStoreV2>
 						<properties>
 							<env>${env}</env>
 							<http.port>${http.port}</http.port>
-							<anypoint.platform.client_id>2d2aed374bef47919015d59be8dd7f5f</anypoint.platform.client_id>
-							<anypoint.platform.client_secret>D87ee84F57064b5E953C90Ab13E4A38b</anypoint.platform.client_secret>
 
 						</properties>
 					</cloudHubDeployment>
